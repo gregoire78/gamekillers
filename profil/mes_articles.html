@@ -1,0 +1,72 @@
+<div role="tabpanel" class="tab-pane marge_profil" id="articles">
+	<?php if (isset($id_article_user[0])){ ?>
+	<div class="panel panel-default">
+		<!-- Default panel contents -->
+		<!-- Table -->
+		<div class="panel-heading" role="tab" style="text-align: center">
+			<h4 class="panel-title">
+				<b>Article(s) publié(s)</b>
+			</h4>
+		</div>
+		<table class="table">
+			<tr>
+				<th>Titre de l'article</th>
+				<th>Type d'article</th>
+				<th>Note totale</th>
+				<th>Date de publication</th>		
+			</tr>
+			<?php $i=0; while (isset($id_article_user[$i])){ ?>
+			<tr>
+				<td id="center_cellule">
+					<a href="article.php?article=<?php echo $id_article_user[$i]; ?>"><?php echo $title_article_user[$i]; ?></a>
+					<span class="bouton_modifier">
+						<a href = "edit_article.php?article=<?php echo $id_article_user[$i]; ?>" style="float:left;">Modifier</a>
+						<a href = "article.php?article=<?php echo $id_article_user[$i]; ?>&supprimer" style="float:left;margin-left:8px;">Supprimer</a>
+					</span>
+				</td>
+				<td id="center_cellule"><?php echo $libelle_article_user[$i]; ?></td>
+				<td id="center_cellule">
+				<?php 	if (isset($note_totale_article_user[$i])){
+							echo $note_totale_article_user[$i];}
+						else	{ ?>
+							<b>Pas encore noté</b>
+						<?php 	} ?>
+				</td>
+				<td id="center_cellule"><?php echo $date_article_user[$i]; ?></td>
+			</tr>
+			<?php $i++; } ?>						
+		</table>
+	</div>
+	<?php }else{ ?>
+		<div class="message_profil" style="margin-bottom:15px;">Vous avez aucun article publié</div>
+	<?php } 
+		if (isset($id_article_user_non[0])){ ?>
+	<div class="panel panel-default">
+		<!-- Default panel contents -->
+		<!-- Table -->
+		<div class="panel-heading" role="tab" style="text-align: center">
+			<h4 class="panel-title">
+				<b>Article(s) en attente</b>
+			</h4>
+		</div>
+		<table class="table">
+			<tr>
+				<th>Titre de l'article</th>
+				<th>Type d'article</th>
+				<th>Date de création ou de mise à jour</th>		
+			</tr>
+			<?php $i=0; while (isset($id_article_user_non[$i])){ ?>
+			<tr>
+				<td id="center_cellule">
+					<a href="article.php?article=<?php echo $id_article_user_non[$i]; ?>"><?php echo $title_article_user_non[$i]; ?></a>
+				</td>
+				<td id="center_cellule"><?php echo $libelle_article_user_non[$i]; ?></td>
+				<td id="center_cellule"><?php echo $date_article_user_non[$i]; ?></td>
+			</tr>
+			<?php $i++; } ?>						
+		</table>
+	</div>
+	<?php }else if($statut_menu!=3){ ?>
+		<div class="message_profil" style="margin-bottom:15px;">Vous avez aucun article en attente</div>
+	<?php } ?>
+</div>

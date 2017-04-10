@@ -1,0 +1,31 @@
+<div role="tabpanel" class="tab-pane marge_profil" id="commentaires">
+	<?php 	if (isset($id_com[0])){ ?>
+		<?php $i=0; while(isset($id_com[$i])){ ?>
+			<div class="liste_commentaire">
+				<div class="thumbnail col-sm-1 col-sm-height full-article article-auteur">
+					<strong><?php echo $pseudo_menu; ?></strong> <span class="statut">(<?php echo $statut_user; ?>)</span> <br/>
+					<img src="<?php echo $avatar_menu; ?>" alt="av_com" class="img-rounded img-responsive" height="100" width="100" />
+				</div>
+				<div style="padding-top:0" class="thumbnail col-sm-11 col-sm-height full-article article-text">
+					<small style="font-size: 10px;color: #245269;">Ecrit le <?php echo $date_com[$i]; ?>
+					pour l'article <a style="font-size: 11px;" href="article.php?article=<?php echo $id_article_com[$i]; ?>"><?php echo $title_article_com[$i]; ?></a></small>
+					<!-------------------> 
+					<?php echo $text_com[$i]; ?>
+					<!--note-->
+					<!------------------>
+					<!--Afficher la note totale de l'article-->
+					<div class="note">
+						<?php if (isset($note_globale[$i])){ ?>						
+							<span><b>Note totale : <?php echo $note_globale[$i]; ?></b></span>
+						<?php }else{ ?>
+							<span><b>Ce commentaire n'a pas encore été noté</b></span>						
+						<?php } ?>
+					</div>
+					<!------------------------>
+				</div>
+			</div>
+		<?php $i++; } 
+			}else{ ?>
+			<div class="message_profil">Vous avez posté aucun commentaire</div>
+	<?php 	} ?>
+</div>

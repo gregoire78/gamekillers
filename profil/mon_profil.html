@@ -1,0 +1,144 @@
+<div role="tabpanel" class="tab-pane active" id="profil" style="margin:0;">
+	<?php 	if(isset($success)) { ?>
+		<div class="alert alert-success" style="margin-top:10px;" role="alert">
+			<strong><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> </strong>Profil mis à jour avec succes! Redirection dans <span id="compteur"></span>
+		</div>
+	<?php 	} ?>
+	<div class="panel-body col-md-6">
+		<h3>Profil <small>Satut : <?php echo $statut; ?></small></h3>
+		<form action="profil.php" method="post" class="form-horizontal">
+			<div class="form-group">
+				<label for="inputNom" class="col-md-2 control-label">Nom</label>
+				<div class="col-md-9">
+					<input type="text" name="nom" class="form-control" id="inputNom" placeholder="<?php echo $nom_user_data; ?>" value="<?php echo $nom_user_data; ?>">
+					<?php 	if(isset($errors_profile[1])) { ?>
+						<div class="alert alert-danger alert-dismissible" role="alert" style="margin-bottom: 0">
+							<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<strong><span class="glyphicon glyphicon-alert" aria-hidden="true"></span>&nbsp;</strong><?php echo $errors_profile[1];?>
+						</div>
+					<?php 	} ?>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputPrenom" class="col-md-2 control-label">Prénom</label>
+				<div class="col-md-9">
+					<input type="text" name="prenom" class="form-control" id="inputPrenom" placeholder="<?php echo $prenom_user_data; ?>" value="<?php echo $prenom_user_data; ?>">
+					<?php 	if(isset($errors_profile[2])) { ?>
+						<div class="alert alert-danger alert-dismissible" role="alert" style="margin-bottom: 0">
+							<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<strong><span class="glyphicon glyphicon-alert" aria-hidden="true"></span>&nbsp;</strong><?php echo $errors_profile[2];?>
+						</div>
+					<?php 	} ?>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputEmail" class="col-md-2 control-label">Email</label>
+				<div class="col-md-9">
+					<input type="email" name="email" class="form-control" id="inputEmail" placeholder="<?php echo $email_user_data; ?>" value="<?php echo $email_user_data; ?>">
+					<?php 	if(isset($errors_profile[3])) { ?>
+						<div class="alert alert-danger alert-dismissible" role="alert" style="margin-bottom: 0">
+							<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<strong><span class="glyphicon glyphicon-alert" aria-hidden="true"></span>&nbsp;</strong><?php echo $errors_profile[3];?>
+						</div>
+					<?php 	} ?>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputPseudo" class="col-md-2 control-label">Pseudo</label>
+				<div class="col-md-9">
+					<input type="text" name="pseudo" class="form-control" id="inputPseudo" placeholder="<?php echo $pseudo_user_data; ?>" value="<?php echo $pseudo_user_data; ?>">
+					<?php 	if(isset($errors_profile[4])) { ?>
+						<div class="alert alert-danger alert-dismissible" role="alert" style="margin-bottom: 0">
+							<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<strong><span class="glyphicon glyphicon-alert" aria-hidden="true"></span>&nbsp;</strong><?php echo $errors_profile[4];?>
+						</div>
+					<?php 	} ?>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-offset-2 col-md-10">
+					<button type="submit" name="modifier_profil" class="btn btn-primary">Enregistrer</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="panel-body col-md-6" style="float: right;">
+		<h3>Image du profil</h3>
+		<img id="blah" class="img-rounded" style="float:left;background-color: #ffffff; background-size: 200px;" src="<?php echo $avatar_user_data; ?>" alt="img pas trouvé" height=200 width=200 />
+		<form action="profil.php" method="post" enctype="multipart/form-data">
+			<div class="form-group">
+				<label for="inputAvatarFile" class="col-md-7 col-sm-9 col-xs-12 control-label">Importer depuis votre PC</label>
+				<div class="col-md-7 col-sm-9 col-xs-12">
+					<input type="file" name="AvatarFile" class="form-control filestyle" onchange="readURL(this);" id="inputAvatarFile" accept="image/*" data-buttonText="&nbsp;Parcourir">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputAvatarFileHttp" class="col-md-7 col-sm-9 col-xs-12 control-label">Importer depuis un lien</label>
+				<div class="col-md-7 col-sm-9 col-xs-12">
+					<input type="url" name="AvatarFileHttp" class="form-control filestyle" value="" id="inputAvatarFileHttp" placeholder="http://">
+					<?php 	if(isset($errors_avatar[8])) { ?>
+						<div class="alert alert-danger alert-dismissible" role="alert" style="margin-bottom: 0">
+							<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<strong><span class="glyphicon glyphicon-alert" aria-hidden="true"></span>&nbsp;</strong><?php echo $errors_avatar[8];?>
+						</div>
+					<?php 	} ?>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-7 col-sm-9 col-xs-12" style="margin-top:15px;">
+					<button type="submit" name="modifier_avatar" class="btn btn-primary">OK</button> <span style="font-size: 12px;">(100 Ko Max)</span>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div style="clear: both;"></div>
+	<div class="panel-body col-md-6" style="clear:left;">
+		<h3>Modification du mot de passe</h3>
+		<form action="profil.php" method="post" class="form-horizontal">
+			<div class="form-group">
+				<label for="inputPasswordActuel" class="col-md-4 control-label">Mot de passe actuel</label>
+				<div class="col-md-8">
+					<input type="password" name="passwordActuel" class="form-control" id="inputPasswordActuel" placeholder="Mot de passe actuel">
+					<?php 	if(isset($errors_mdp[5])) { ?>
+						<div class="alert alert-danger alert-dismissible" role="alert" style="margin-bottom: 0">
+							<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<strong><span class="glyphicon glyphicon-alert" aria-hidden="true"></span>&nbsp;</strong><?php echo $errors_mdp[5];?>
+						</div>
+					<?php 	} ?>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputNewPassword" class="col-md-4 control-label">Nouveau mot de passe</label>
+				<div class="col-md-8">
+					<input type="password" name="NewPassword" class="form-control" id="inputNewPassword" placeholder="Nouveau mot de passe">
+					<?php 	if(isset($errors_mdp[6])) { ?>
+						<div class="alert alert-danger alert-dismissible" role="alert" style="margin-bottom: 0">
+							<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<strong><span class="glyphicon glyphicon-alert" aria-hidden="true"></span>&nbsp;</strong><?php echo $errors_mdp[6];?>
+						</div>
+					<?php	} ?>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputConfNewPassword" class="col-md-4 control-label">Confirmer le mot de passe</label>
+				<div class="col-md-8">
+					<input type="password" name="ConfNewPassword" class="form-control" id="inputConfNewPassword" placeholder="Confirmation du nouveau mot de passe">
+					<?php 	if(isset($errors_mdp[7])) { ?>
+						<div class="alert alert-danger alert-dismissible" role="alert" style="margin-bottom: 0">
+							<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<strong><span class="glyphicon glyphicon-alert" aria-hidden="true"></span>&nbsp;</strong><?php echo $errors_mdp[7];?>
+						</div>
+					<?php 	} ?>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-offset-2 col-md-10">
+					<button type="submit" name="modifier_mdp" class="btn btn-primary">Modifier le mot de passe</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="panel-body col-md-12">
+		<a type="button" class="btn btn-success" href="profil.php"> Réinialiser </a>
+	</div>
+</div>

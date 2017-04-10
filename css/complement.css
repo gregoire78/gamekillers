@@ -1,0 +1,398 @@
+﻿/*--------------------image de background du site-------------------*/
+body{
+    background: url(3c75397af17a37b29c6e5311c20f231d_large.jpeg)no-repeat center fixed;
+    background-size: cover;
+}
+
+/*---------------Style du contenant principale de toute les pages-------------*/
+.page{
+    background-color: rgba(255, 255, 255, 0.6);
+	min-height:600px;
+	float:left;
+	margin-left:8.3333333%;
+	width:83.333333%;
+	border-radius:4px;
+	padding:15px;
+}
+.underline{
+    border-bottom: 1px solid #eee;/*soulignage des titres*/
+}
+h3.underline{
+    margin-top:0px;
+}
+/*-------------------Barre de menu----------------------*/
+.navbar-default{
+    border-radius:0px;
+}
+
+.background_header{
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.page-header{
+    padding-top:10px;
+    padding-bottom:19px;
+    margin-top:0px;
+    margin-bottom:0px;
+    border:0px;
+}
+
+/*----------------------------Style pour le footer----------------------------------*/
+
+.footer{
+margin-top:20px;
+background-color: #222;
+padding:0px;
+position: relative;
+border-top: 1px solid #020101;
+color:#9d9d9d;
+width:100%;
+float:left;
+}
+.col_footer{/*bloc du footer*/
+width:31.3333%;
+float:left;
+padding:10px 10px 0 10px;
+margin:1%;
+border-left:1px solid #767676;
+}
+.titre{
+margin-bottom:5px;
+border-bottom:1px solid #767676;
+margin:0 10px;
+font-size:13px;
+color:#767676;
+}
+.sous_titre{
+font-size:11px;
+margin:0 10px 0 13px;
+text-align:justify;
+color:#9d9d9d;
+}
+.liste_footer{
+list-style:none;
+padding:0;
+}
+.content_footer{
+margin-top:3px;
+margin-bottom:3px;
+margin-left:8.33333333%;
+width:83.33333333%;
+float:left;
+padding-right:15px;
+padding-left:15px;
+}
+.copyright{/*Bloc du copyright*/
+width:100%;
+float:left;
+}
+.copyright h4{ /*Texte du bloc copyright*/
+margin:0 0 0 12px;
+font-size:13px;
+}
+.sous_titre a{
+color:#9d9d9d;
+}
+.sous_titre a:hover{
+color:#6C6C6C;
+border-bottom:1px solid #6C6C6C;
+}
+/*-------------------------------------------------------------------*/
+
+.connexion{
+    padding:10px;
+}
+.menu{
+    padding:0px;
+}
+#drop_compte{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#avatarMenu{
+    margin-right: 15px;
+    display: inline-block;
+    vertical-align: top;
+}
+#compteMenu{
+    display: inline-block;
+    margin-bottom: 0;
+}
+#caretCompte{
+    display: inline;
+}
+.panel-profil{
+    display: inline-block;
+}
+.statut{
+    font-size:11px;
+}
+
+.pseudo{
+    font-size:14px;
+    display:inline-block;
+    margin-left:3%;
+}
+.date_art{
+    font-size:10px;
+    display:inline-block;
+    float:right;
+    margin:5px 10px 0 0;
+}
+/*----------------Style de la page article.html---------------------*/
+.article{
+    background-color: rgba(237, 253, 245, 0.7);
+	margin-top:15px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+}
+.full-article {
+    margin-bottom: 0;
+}
+.article-auteur{
+    border-radius: 4px 0 0 4px;
+}
+.article-text{
+    border-radius: 0 4px 4px 0 ;
+    border-left: none;
+    padding-bottom: 20px;
+	width:100%;
+}
+/*----------Style de la page actu.html----------------------*/
+.article-heading{
+  color: #333;
+  background-color: #f5f5f5;
+  border-color: #ddd;
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.article-title{
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 16px;
+}
+.article-title a{
+  color: #333;
+}
+.alert-danger {
+    font-size: 12px;
+}
+.image_article {
+    margin:15px 0;
+	overflow: hidden;
+}
+
+/*-----------------------------------Style de la page d'accueil----------------------------------------*/
+
+.lien_accueil{/*image de font pour chaque bloc d'article*/
+width:100%;
+float:left;
+min-height:250px;
+background-color:rgb(168, 168, 168);
+}
+
+.lien_accueil img {
+height:248px;
+max-width:100%;
+}
+article.tbl1{
+    display: inline-block;
+}
+div.image { /*Position est style de l'image et la zone de text*/
+	position: relative;
+	overflow: hidden;
+	max-width: 100%;
+	max-height: 256px;
+	display: inline-block;
+	border: 1px solid #ddd;
+	margin:0px;
+}
+
+a.desc { /*Parametre de la zone de texte flotante*/
+	width: 100%;
+	height: 50px;
+	position: absolute;
+	color:rgba(255, 255, 255, 0.5);
+	background-color:rgba(0, 0, 0, 0.5);
+	font-size: 14px;
+	-webkit-transition: all .3s ease;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	-o-transition: all .3s ease;
+	transition: all .3s ease;
+	padding:5px 15px;
+}
+a.desc:hover{
+background-color:rgba(0, 0, 0, 0.9);
+color:rgba(255, 255, 255, 0.9);
+}
+div.image.boxFULL a { /*1) Dimension zone de txt et 2) Afficher ou pas la zone text */
+    height: 110px;
+	bottom: -80px;
+}
+div.image.boxFULL:hover a { /*Mouvement de la zone de txt*/
+	bottom: 0px;
+    
+}
+.image_accueil {
+text-align:center;
+margin:0px;
+}
+.espace_accueil { /*espace entre les blocs d'article*/
+padding:5px;
+}
+.bloc_accueil{ /*largeur de chaque bloc*/
+width:33.33333333%;
+float:left;
+}
+/*-----------------------------------------------------------------------------*/
+
+/* meme hauteur */
+@media (min-width: 200px) {
+    .col-sm-height {
+        display: table-cell;
+        float: none !important;
+        vertical-align: top;
+        min-width: 100px;
+    }
+}
+@media (min-width: 200px) {
+    .col-sm-height-ckedito {
+        display: table-cell;
+        float: left !important;
+        vertical-align: top;
+        height: 210px;
+        overflow: auto;
+    }
+    .col-sm-ckedito-3 {
+        width:20%;
+    }
+    .col-sm-ckedito-9 {
+        width:80%;
+        border-radius: 0;
+        border-left: none;
+    }
+}
+.input
+input[type=radio]:checked+label:before {
+    border-color: #979797;
+}
+.input
+input[type=radio]:checked+label:after {
+    background: #595959;
+}
+/*commentaires*/
+.cke_editable {
+    cursor: text;
+    /*width: 550px;*/
+    height: 200px;
+    width:100%;
+    overflow: auto;
+}
+#editor1
+{
+    width: 100%;
+}
+.content_commentaires
+{
+    margin-bottom: 20px;
+}
+
+/*bouton suppr mod com*/
+.btn_com {
+    border: none;
+    border-radius: 5px !important;
+}
+.btn_com_suppr:hover {
+    background-color: #d8534f;
+    color: #ffffff;;
+}
+.ckemodifcom {
+    width: 100% !important;
+    border-radius: 0;
+    background-color: #fdefa1;
+    border: none;
+    margin-bottom: 0;
+    padding: 0 !important;
+    height: 200px !important;
+}
+.pouce_up {
+    transform: rotate(180deg);
+}
+.small_date {
+    font-size: 10px;
+    color: #245269;
+}
+.bloc_commentaire{
+    padding-top:0;
+}
+.modif_com{
+    padding-bottom: 10px;
+}
+
+/*-----------------------Différente partie du profil--------------------*/
+.tab-pane{
+margin-top:10px;
+}
+.mes_notes{
+margin-right:10px;
+font-size:12px;
+}
+.liste_commentaire{
+margin-top:15px;
+padding-top:0;
+}
+.bloc_note_article{
+font-size:12px;
+}
+.note{
+position: absolute;
+bottom: 5px;
+padding: 0;
+}
+.bouton_modifier{
+font-size:11px;
+float:right;
+margin-right:20%;
+margin-top:3px;
+}
+a.bouton_modifier {
+margin-right:25%;
+}
+#center_cellule { /*alignement vertical des colonnes des tableaux*/
+vertical-align: middle;
+}
+.message_profil{
+text-align:center;
+width:100%;
+padding:10px 0;
+border-radius:4px;
+font-size:20px;
+background:white;
+}
+.marge_profil{
+margin-top:15px;
+}
+
+/*---------------------Page de connexion---------------------*/
+.bloc_connexion{
+margin-left:20%;
+width:60%;
+padding:20px;
+margin-bottom:0;
+}
+.espace_connexion{/*espace entre les blocs*/
+padding:15px;
+}
+/*------------------------page membre------------------------*/
+.header_membre{
+    margin: 10px !important;
+}
+.small_membre{
+    color: darkred
+}
+.img_membre{
+    margin: 0 !important;
+}

@@ -1,0 +1,13 @@
+DirectoryIndex index.php index.html
+ErrorDocument 401 /erreur.php?id=401
+ErrorDocument 403 /erreur.php?id=403
+ErrorDocument 404 /erreur.php?id=404
+ErrorDocument 406 /erreur.php?id=406
+ErrorDocument 500 /erreur.php?id=500
+ErrorDocument 503 /erreur.php?id=503
+
+#interdire les html
+RewriteEngine on
+RewriteCond %{REQUEST_URI} !^/gamekillers/elfinder/elfinder.html$
+RewriteCond %{REQUEST_URI} !^/elfinder/elfinder.html$
+RewriteRule ^(.*)\.html$ $1.php [nc]

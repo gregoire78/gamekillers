@@ -1,0 +1,38 @@
+<footer class="footer">
+	<div class="content_footer">
+		<div class="col_footer">
+			<ul class="liste_footer">
+				<li class="titre">A propos</li>
+				<li class="sous_titre">
+					Ce site a été créé dans le cadre d'un projet d'école par Erik MAILLARD, Grégoire JONCOUR, Ivan PERIC, Allan CONTARET. Ce premier site nous a permis d'approfondir nos connaissances sur la manipulation des bases de données et l'utilisation du language php. Il ne sera pas difuser ou même commercialiser (encore que, c'est quand même assez pro comme premier site soit dit en passant...).
+				</li>
+			</ul>
+		</div>
+		<div class="col_footer">
+			<ul class="liste_footer">
+				<li class="titre">Actualité</li>
+				<?php $i=0; while (isset($libelle[$i])){ ?>
+				<li class="sous_titre"><a href="actu.php?type=<?php echo $id_type[$i]; ?>"><?php echo $libelle[$i];?></a></li>
+				<?php $i++; } ?>
+			</ul>
+		</div>
+		<div class="col_footer">
+			<ul class="liste_footer">
+				<li class="titre">Information</li>
+				<li class="sous_titre">
+					<?php if(!isset($_SESSION['id_user'])){ ?>
+						<a href="inscription.php">S'inscrire</a>
+					<?php }else if ($statut_menu>1){ ?>
+						<a href="edit_article.php">Ecrire un article</a>
+					<?php }else{ ?>
+						<a href="edit_article.php">Proposer un article</a>
+					<?php } ?>
+				</li>
+				<li class="sous_titre"><a href="profil.php" >Profil</a></li>
+			</ul>
+		</div>
+		<div class="copyright">
+			<h4>© gamekiller.fr 2014-<?php echo date("Y"); ?><a style="float:right;color: inherit;font-size:10px;" href="#">Retour en haut de page</a></h4>
+		</div>
+	</div>
+</footer>

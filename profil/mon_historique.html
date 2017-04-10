@@ -1,0 +1,28 @@
+<div role="tabpanel" class="tab-pane marge_profil" id="historique">
+	<?php if (isset($id_article_lu[0])){ ?>
+		<div class="panel panel-default" style="margin-bottom:0px;">
+			<!-- Table -->
+			<table class="table">
+				<tr>
+					<th>Auteur de l'article</th>
+					<th>Titre de l'article</th>
+					<th>Type d'article</th>
+					<th>Date de publication</th>
+					<th>Date de lecture</th>
+				</tr>
+				<?php $i=0; while (isset($id_article_lu[$i])){ ?>
+				<tr>
+					<td id="center_cellule"><img src="<?php echo $avatar_auteur[$i]; ?>" alt="auteur" class="img-circle" height="60" width="60" style="margin-right:15px;"><?php echo $pseudo_auteur[$i]; ?></td>
+					<td id="center_cellule"><a href="article.php?article=<?php echo $id_article_lu[$i]; ?>"><?php echo $title_article_lu[$i];?></a></td>
+					<td id="center_cellule"><?php echo $type_article_auteur[$i]; ?></td>														
+					<td id="center_cellule"><?php echo $date_art_lu[$i]; ?></td>
+					<td id="center_cellule"><?php echo $date_lu[$i]; ?></td>
+				</tr>
+				<?php $i++; } ?>						
+			</table>	
+		</div>
+	<?php }else{ ?>
+		<div class="message_profil">Vous avez lu aucun article</div>
+	<?php } ?>	
+</div>
+			

@@ -1,0 +1,72 @@
+<div role="tabpanel" class="tab-pane marge_profil" id="notes">
+	<?php if (isset($id_article_noter[0])){?> 
+		<div class="panel panel-default" style="margin-bottom:15px;">
+			<div class="panel-heading" role="tab" id="headingOne">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapse_article" aria-expanded="true" aria-controls="collapseOne">
+						<span class="glyphicon glyphicon-triangle-bottom mes_notes"></span>Notes données aux articles
+					</a>
+				</h4>
+			</div>
+			<div id="collapse_article" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">			
+				<table class="table">
+					<tr>							
+						<th>Titre de l'article</th>
+						<th>Type d'article</th>
+						<th>Note donnée</th>
+						<th>Auteur de l'article</th>
+						<th>Statut</th>
+					</tr>
+					<?php $i=0; while (isset($id_article_noter[$i])){ ?>
+					<tr>							
+						<td id="center_cellule"><a href="article.php?article=<?php echo $id_article_noter[$i]; ?>"><?php echo $title_article_noter[$i]; ?></a></td>
+						<td id="center_cellule"><?php echo $libelle_article_noter[$i]; ?></a></td>
+						<td id="center_cellule"><?php echo $note_article_noter[$i]; ?></td>														
+						<td id="center_cellule"><img src="<?php echo $avatar_article_auteur_noter[$i]; ?>" alt="auteur" class="img-circle" height="60" width="60"><span style="margin-left:5%;"><?php echo $pseudo_article_auteur_noter[$i]; ?></span></td>
+						<td id="center_cellule"><?php echo $statut_article_auteur_noter[$i]; ?></td>
+					</tr>
+					<?php $i++; } ?>				
+				</table>
+			</div>
+		</div>
+	<?php }else{ ?>
+		<div class="message_profil" style="margin-bottom:15px;">Vous avez noté aucun article</div>
+	<?php }
+	if(isset($id_com_noter[0])){ ?>
+		<div class="panel panel-default" style="margin-bottom:0;">
+			<div class="panel-heading" role="tab" id="headingTwo">
+				<h4 class="panel-title">
+					<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse_commentaire" aria-expanded="false" aria-controls="collapseTwo">
+						<span class="glyphicon glyphicon-triangle-bottom mes_notes"></span>Notes données aux commentaires
+					</a>
+				</h4>
+			</div>		
+			<div id="collapse_commentaire" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+				<div class="panel-body liste_commentaire" style="margin-top:0;">
+					<?php $i=0;	while(isset($id_com_noter[$i])){ ?>
+					<div class="liste_commentaire">
+						<div class="thumbnail col-sm-1 col-sm-height full-article article-auteur" style="">
+							<strong><?php echo $pseudo_com_auteur_noter[$i]; ?></strong> <span class="statut">(<?php echo $statut_com_auteur_noter[$i]; ?>)</span> <br/>
+							<img src="<?php echo $avatar_com_auteur_noter[$i]; ?>" alt="av_com" class="img-rounded img-responsive" height="100" width="100" />
+						</div>
+						<div class="thumbnail col-sm-11 col-sm-height full-article article-text">
+							<small style="font-size: 10px;color: #245269;">Ecrit le <?php echo $date_com_auteur_noter[$i]; ?>
+							pour l'article <a style="font-size: 11px;" href="article.php?article=<?php echo $id_article_corresp[$i]; ?>"><?php echo $title_article_corresp[$i]; ?></a></small>
+							<!-------------------> 
+							<?php echo $text_com_noter[$i]; ?>
+							<!------------------>
+							<!--Afficher la note totale de l'article-->
+							<div class="note">					
+								<span><b>Note donnée : <?php echo $note_com_noter[$i]; ?></b></span>
+							</div>
+							<!------------------------>
+						</div>
+					</div>
+					<?php $i++; } ?>
+				</div>
+			</div>
+		</div>
+	<?php }else{?>
+		<div class="message_profil" style="margin:10px 0;">Vous avez noté aucun commentaire</div>
+	<?php } ?>
+</div>

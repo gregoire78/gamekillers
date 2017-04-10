@@ -1,0 +1,74 @@
+<nav class="navbar navbar-default navbar-inverse">
+	<div class="container-fluid col-md-10 col-md-offset-1">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="index.php">Accueil</a>
+		</div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Actualité <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<?php $i=0; 
+						while (isset($libelle[$i])){ ?>
+							<li><a href="actu.php?type=<?php echo $id_type[$i]; ?>"><?php echo $libelle[$i]; ?></a></li>
+						<?php $i++; } ?>
+					</ul>
+				<?php 	if(isset($_SESSION['id_user'])){ ?>
+					<li><a href="edit_article.php"><?php if ($statut_menu<2){ ?>Proposer un article<?php } else { ?>Ecrire un article<?php } ?></a></li>
+				<?php }?>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<?php 	if(!isset($_SESSION['id_user'])){ ?>
+					<li><a href="inscription.php">S'inscrire</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Se connecter <span class="caret"></span></a>
+						<ul class="dropdown-menu menu" role="menu">
+							<form class="form-inline" method="post" action="connexion.php">
+								<div class="form-group connexion">
+									<input type="text" name="email" class="form-control" id="inputEmail" placeholder="Email">
+								</div>
+								<div class="form-group connexion">
+									<input type="password" name="password" class="form-control" id="inputPassword" placeholder="Mot de passe">
+								</div>
+								<div class="form-group connexion">
+									<div class="checkbox">
+										<label for="checkbox" title="cocher cette case vous permet de rester connecter connecté sur cet appareil.">
+											<input type="checkbox" id="checkbox" name="stayco" value="1" > Rester connecter
+										</label>
+									</div>
+								</div>
+								<div class="form-group connexion">
+									<button type="submit" name="connecter" class="btn btn-default">Se connecter</button>
+								</div>
+							</form>
+						</ul>
+					</li>
+				<?php 	}else{ ?>
+					<li class="dropdown">
+						<a id="drop_compte" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img alt="av" id="avatarMenu" class="img-circle" height="40" width="40" src="<?php echo $avatar_menu; ?>"/><p id="compteMenu"><?php echo $pseudo_menu; ?><br/> <span class="statut">(<?php echo statut_user($_SESSION['id_user']) ?>)</span></p><span id="caretCompte" class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="profil.php">Profil</a></li>
+							<?php if($statut_menu==3){
+							$res = recup_articles_non_valide();
+							$labelle = mysqli_num_rows($res);
+							?>
+							<li><a href="administrateur.php">Gestion des utilisateurs</a></li>
+							<li><a href="admin_article.php">Articles en attentes <span class="badge"><?php echo $labelle; ?></span></a></li>
+							<?php } ?>
+							<li><a href="deconnexion.php">Se déconnecter</a></li>
+						</ul>
+					</li>
+				<?php 	} ?>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
